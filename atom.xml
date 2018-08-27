@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.prozin.xyz/"/>
-  <updated>2018-08-26T17:01:32.016Z</updated>
+  <updated>2018-08-27T03:12:28.000Z</updated>
   <id>http://blog.prozin.xyz/</id>
   
   <author>
@@ -17,33 +17,23 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Java客户端后台运行</title>
-    <link href="http://blog.prozin.xyz/2018/08/27/lanprox%E7%9A%84java%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%90%8E%E5%8F%B0%E8%BF%90/"/>
-    <id>http://blog.prozin.xyz/2018/08/27/lanprox的java客户端后台运/</id>
-    <published>2018-08-26T17:01:31.000Z</published>
-    <updated>2018-08-26T17:01:32.016Z</updated>
+    <title>lanprox java客户端win下后台运行</title>
+    <link href="http://blog.prozin.xyz/2018/08/27/lanprox-java%E5%AE%A2%E6%88%B7%E7%AB%AFwin%E4%B8%8B%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C/"/>
+    <id>http://blog.prozin.xyz/2018/08/27/lanprox-java客户端win下后台运行/</id>
+    <published>2018-08-26T17:21:06.000Z</published>
+    <updated>2018-08-27T03:12:28.000Z</updated>
     
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://blog.prozin.xyz/2018/08/26/hello-world/"/>
-    <id>http://blog.prozin.xyz/2018/08/26/hello-world/</id>
-    <published>2018-08-26T09:39:24.265Z</published>
-    <updated>2018-08-26T09:39:24.265Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>##lanproxy是什么?<br>lanproxy 与frp和socks或者N2n的反向代理的一种工具</p><p>##lanproxy有哪些优点？</p><ul><li>方便添加映射端口<ul><li>不像frp，需要在客户端上手动修改配置才能完成映射。</li><li>lanproxy，可以直接在java环境下运行</li></ul></li><li>lanproxy 支持ssl加密传输。</li><li>界面美观</li></ul><p>#Lanproxy下后台运行<br>官方给出的脚本打开后会弹出一个黑框，如果把这个dos窗口关闭了，则这个lanpoxy程序会关闭<br>然后我们只需要在客户端修改/bin/startup.bat文件即可<br>找到<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Dapp.home=../ -Xms64m -Xmx1024m -classpath ..\conf;%LIB_JARS% org.fengfei.lanproxy.client.ProxyClientContainer</span><br></pre></td></tr></table></figure></p><p>修改成<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javaw -Dapp.home=../ -Xms64m -Xmx1024m -classpath ..\conf;%LIB_JARS% org.fengfei.lanproxy.client.ProxyClientContainer</span><br></pre></td></tr></table></figure></p><p>重新打开后，会显示出一个新dos框我们关闭它，在后台会找到一个javaw进程。也就是说只要javaw进程还在 lanprox服务还在</p><h2 id="see-you"><a href="#see-you" class="headerlink" title="see you"></a>see you</h2>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+        &lt;p&gt;##lanproxy是什么?&lt;br&gt;lanproxy 与frp和socks或者N2n的反向代理的一种工具&lt;/p&gt;
+&lt;p&gt;##lanproxy有哪些优点？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;方便添加映射端口&lt;ul&gt;
+&lt;li&gt;不像frp，需要在客户端上手动修改配置才能完成映射。&lt;/li
       
     
     </summary>
